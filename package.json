@@ -21,6 +21,7 @@
   "dependencies": {
     "body-parser": "^1.19.1",
     "convict": "^6.2.1",
+    "convict-format-with-validator": "^6.2.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
@@ -34,6 +35,6 @@
     "nodemon": "^2.0.15"
   },
   "jshintConfig": {
-    "esversion": 6
+    "esversion": 9
   }
 }

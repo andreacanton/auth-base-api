@@ -1,18 +1,20 @@
-import dotenv from "dotenv";
-import http from "http";
-import app from "./app";
+import dotenv from 'dotenv';
+import http from 'http';
+import app from './app';
+import config from './config';
+import logger from './logger';
 
 dotenv.config();
 
-const PORT = "5000";
+const PORT = config.get('port');
 
-app.set("port", PORT);
-app.set("env", "development");
-app.set("x-powered-by", false);
+app.set('port', PORT);
+app.set('env', config.get('env'));
+app.set('x-powered-by', false);
 
 const server = http.createServer(app);
 
-server.listen(PORT, "127.0.0.1", () => {
+server.listen(PORT, config.get('ip'), () => {
   const addrInfo = server.address();
-  console.log(`Server running on //${addrInfo.address}:${addrInfo.port}`);
+  logger.info(`Server running on //${addrInfo.address}:${addrInfo.port}`);
 });
