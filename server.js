@@ -1,10 +1,8 @@
-import dotenv from 'dotenv';
-import http from 'http';
-import app from './app';
-import config from './config';
-import logger from './logger';
-
-dotenv.config();
+require('dotenv').config();
+const http = require('http');
+const app = require('./app');
+const config = require('./config');
+const logger = require('./logger');
 
 const PORT = config.get('port');
 
@@ -16,5 +14,5 @@ const server = http.createServer(app);
 
 server.listen(PORT, config.get('ip'), () => {
   const addrInfo = server.address();
-  logger.info(`Server running on //${addrInfo.address}:${addrInfo.port}`);
+  logger.info(`Server running on http://${addrInfo.address}:${addrInfo.port}`);
 });

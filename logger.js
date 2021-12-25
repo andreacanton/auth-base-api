@@ -1,5 +1,5 @@
-import { createLogger, format, transports } from 'winston';
-import config from './config';
+const { createLogger, format, loggers, transports } = require('winston');
+const config = require('./config');
 
 const ENV = config.get('env');
 

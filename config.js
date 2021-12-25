@@ -1,8 +1,8 @@
-import convict, { addFormats } from 'convict';
-import { existsSync } from 'fs';
-import convictFormatWithValidator from 'convict-format-with-validator';
+const convict = require('convict');
+const { existsSync } = require('fs');
+const convictFormatWithValidator = require('convict-format-with-validator');
 
-addFormats(convictFormatWithValidator);
+convict.addFormats(convictFormatWithValidator);
 
 const config = convict({
   env: {
@@ -121,4 +121,4 @@ if (existsSync(configFilePath)) {
 
 config.validate({ allowed: 'strict' });
 
-export default config;
+module.exports = config;
